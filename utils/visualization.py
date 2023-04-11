@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-from data.dataloader import validation_data
 import torch
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -13,3 +12,19 @@ def visualise(images, predictions):
         ax[i].axis("off")
         
     plt.show()
+
+def metrics_visualisation(loss, accuracy, epochs):
+
+    fig, ax = plt.subplots(1, 2, figsize=(20, 20))
+
+    ax[0].plot(epochs, loss)
+    ax[0].set_title("Loss over time")
+
+    ax[1].plot(epochs, accuracy)
+    ax[1].set_title("Accuracy over time")
+
+    plt.show()
+
+
+
+
